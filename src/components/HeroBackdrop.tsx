@@ -66,7 +66,8 @@ export function HeroBackdrop({ imageUrls, videoLabel }: Props) {
               fill
               sizes="(max-width: 768px) 100vw, 896px"
               className={`object-cover transition-opacity duration-[1400ms] ease-in-out ${
-                i === index ? "opacity-[0.32] dark:opacity-[0.26]" : "opacity-0"
+                // Make the slideshow clearly visible (previously too subtle under the gradient)
+                i === index ? "opacity-[0.70] dark:opacity-[0.55]" : "opacity-0"
               }`}
               priority={i === 0}
             />
@@ -76,7 +77,7 @@ export function HeroBackdrop({ imageUrls, videoLabel }: Props) {
 
       {!reduceMotion && (
         <video
-          className="absolute inset-0 h-full w-full object-cover opacity-20 mix-blend-multiply dark:opacity-25 dark:mix-blend-soft-light"
+          className="absolute inset-0 h-full w-full object-cover opacity-12 mix-blend-multiply dark:opacity-18 dark:mix-blend-soft-light"
           autoPlay
           muted
           loop
@@ -89,7 +90,8 @@ export function HeroBackdrop({ imageUrls, videoLabel }: Props) {
         </video>
       )}
 
-      <div className="absolute inset-0 bg-gradient-to-b from-white/75 via-white/80 to-white/90 dark:from-zinc-950/80 dark:via-zinc-950/85 dark:to-zinc-950/92" />
+      {/* Lighter overlay so the flyers are visible behind the hero content */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/45 to-white/55 dark:from-zinc-950/55 dark:via-zinc-950/65 dark:to-zinc-950/75" />
     </div>
   );
 }
