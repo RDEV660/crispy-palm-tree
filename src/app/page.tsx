@@ -4,6 +4,7 @@ import { SocialLinks } from "@/components/SocialLinks";
 import { StickyWhatsAppButton } from "@/components/StickyWhatsAppButton";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
@@ -162,9 +163,18 @@ export default function Home() {
                   <SocialLinks variant="onDark" />
                 </div>
               </div>
-              <WhatsAppCTA
-                className="inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-zinc-950 shadow-sm ring-1 ring-white/10 transition hover:bg-zinc-100 active:bg-white dark:bg-zinc-950 dark:text-white dark:hover:bg-zinc-900 sm:w-auto"
-              />
+              <div className="flex w-full flex-col gap-3 sm:w-auto sm:items-end">
+                <WhatsAppCTA className="inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-zinc-950 shadow-sm ring-1 ring-white/10 transition hover:bg-zinc-100 active:bg-white dark:bg-zinc-950 dark:text-white dark:hover:bg-zinc-900 sm:w-auto" />
+                <Link
+                  href="/admin/contracts"
+                  className="inline-flex w-full items-center justify-center rounded-full border border-white/25 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/15 dark:border-zinc-950/20 dark:bg-zinc-950/10 dark:text-zinc-950 dark:hover:bg-zinc-950/15 sm:w-auto"
+                >
+                  {tHome("ownerDashboard")}
+                </Link>
+                <div className="text-center text-xs text-white/70 dark:text-zinc-950/70 sm:text-right">
+                  {tHome("ownerDashboardHint")}
+                </div>
+              </div>
             </div>
           </div>
         </section>

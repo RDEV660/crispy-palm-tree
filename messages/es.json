@@ -33,7 +33,9 @@
     "heroVideoLabel": "Video decorativo de fondo",
     "galleryTitle": "Galería",
     "gallerySubtitle": "Unas ideas que nos encantan — tu tema puede ser personalizado.",
-    "footerCTA": "¿Lista para planear? Mándanos mensaje por WhatsApp."
+    "footerCTA": "¿Lista para planear? Mándanos mensaje por WhatsApp.",
+    "ownerDashboard": "Panel de contratos (dueña)",
+    "ownerDashboardHint": "Solo para dueña (te pedirá iniciar sesión)"
   },
   "OwnerGuide": {
     "title": "Cómo funcionan los contratos en línea",

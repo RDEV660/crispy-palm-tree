@@ -33,7 +33,9 @@
     "heroVideoLabel": "Decorative background video",
     "galleryTitle": "Gallery",
     "gallerySubtitle": "A few vibes we love — your theme can be custom.",
-    "footerCTA": "Ready to plan? Message us on WhatsApp."
+    "footerCTA": "Ready to plan? Message us on WhatsApp.",
+    "ownerDashboard": "Owner contract dashboard",
+    "ownerDashboardHint": "Owner-only (will ask you to sign in)"
   },
   "OwnerGuide": {
     "title": "How online contracts work",
