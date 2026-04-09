@@ -75,7 +75,7 @@ export default function Home() {
           <HeroBackdrop videoLabel={tHome("heroVideoLabel")} />
           <div className="relative z-10 grid gap-8">
             <div className="grid gap-4">
-              <h1 className="text-3xl font-extrabold tracking-tight drop-shadow-sm sm:text-5xl">
+              <h1 className="text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-5xl dark:text-zinc-50">
                 {tHome("heroTitle")}
               </h1>
               <p className="max-w-2xl text-base leading-7 text-zinc-800 dark:text-zinc-200 sm:text-lg">
@@ -99,15 +99,15 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-              <div className="rounded-2xl bg-white/90 p-4 ring-1 ring-zinc-200/80 backdrop-blur-sm dark:bg-zinc-900/70 dark:ring-zinc-800">
+              <div className="rounded-2xl bg-white/95 p-4 shadow-sm ring-1 ring-zinc-200/80 backdrop-blur-sm dark:bg-zinc-900/70 dark:ring-zinc-800">
                 <div className="text-xs font-semibold text-zinc-600 dark:text-zinc-400">{tCommon("serviceArea")}</div>
                 <div className="mt-1 text-sm font-semibold">{tCommon("serviceAreaValue")}</div>
               </div>
-              <div className="rounded-2xl bg-white/90 p-4 ring-1 ring-zinc-200/80 backdrop-blur-sm dark:bg-zinc-900/70 dark:ring-zinc-800">
+              <div className="rounded-2xl bg-white/95 p-4 shadow-sm ring-1 ring-zinc-200/80 backdrop-blur-sm dark:bg-zinc-900/70 dark:ring-zinc-800">
                 <div className="text-xs font-semibold text-zinc-600 dark:text-zinc-400">{tHome("servicesTitle")}</div>
                 <div className="mt-1 text-sm font-semibold">Snack carts • Decor • Themes</div>
               </div>
-              <div className="rounded-2xl bg-white/90 p-4 ring-1 ring-zinc-200/80 backdrop-blur-sm dark:bg-zinc-900/70 dark:ring-zinc-800">
+              <div className="rounded-2xl bg-white/95 p-4 shadow-sm ring-1 ring-zinc-200/80 backdrop-blur-sm dark:bg-zinc-900/70 dark:ring-zinc-800">
                 <div className="text-xs font-semibold text-zinc-600 dark:text-zinc-400">WhatsApp</div>
                 <div className="mt-1 text-sm font-semibold">Fast quotes & availability</div>
               </div>
