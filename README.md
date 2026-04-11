@@ -18,6 +18,7 @@ The owner signs in at **`/admin/login`** → **`/admin/contracts`**. Publishing 
    - **`CONTRACT_ADMIN_PASSWORD`** — owner login password.
    - **`CONTRACT_SESSION_SECRET`** — at least **16 characters** (signs the admin session cookie).
    - Optional: **`NEXT_PUBLIC_HERO_VIDEO_URL`** — same as below.
+   - Optional: **`NEXT_PUBLIC_SITE_URL`** — your public site URL (e.g. `https://yourdomain.com`). Makes Open Graph / WhatsApp link previews use the correct domain and logo. If omitted, Vercel’s `VERCEL_URL` is used at build time.
 3. Run the SQL in [`migrations/postgres/0001_contracts.sql`](./migrations/postgres/0001_contracts.sql) once against that database (SQL editor in the provider’s dashboard, or `psql`).
 4. Connect the Git repo and deploy. The build sets `VERCEL=1` automatically; OpenNext Cloudflare init is skipped so the build is a normal Next.js build.
 5. **After changing environment variables**, trigger a **new deployment** (Redeploy) so serverless functions see the new values. A **500 on login** almost always means `CONTRACT_SESSION_SECRET` is missing, under 16 characters, or not deployed yet — not the `npm warn deprecated` lines from the install log (those are harmless).

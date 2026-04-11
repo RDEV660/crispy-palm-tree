@@ -6,7 +6,11 @@ loadDevVarsIntoProcessEnv();
 
 const withNextIntl = createNextIntlPlugin();
 
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+  async redirects() {
+    return [{ source: "/favicon.ico", destination: "/ohana-logo-v2.png", permanent: false }];
+  },
+};
 
 export default withNextIntl(nextConfig);
 
