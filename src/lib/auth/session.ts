@@ -1,22 +1,32 @@
 import { SignJWT, jwtVerify } from "jose";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
+function sessionSecretFromEnv(): string | null {
+  const s = process.env.CONTRACT_SESSION_SECRET?.trim();
+  if (s && s.length >= 16) return s;
+  return null;
+}
+
 function requireSecretString(): string {
-  const s = process.env.CONTRACT_SESSION_SECRET;
-  if (!s || s.length < 16) {
+  const s = sessionSecretFromEnv();
+  if (!s) {
     throw new Error("CONTRACT_SESSION_SECRET must be set (minimum 16 characters).");
   }
   return s;
 }
 
 async function getSessionSecretBytes(): Promise<Uint8Array> {
-  const fromProcess = process.env.CONTRACT_SESSION_SECRET;
-  if (fromProcess && fromProcess.length >= 16) {
-    return new TextEncoder().encode(fromProcess);
+  const direct = sessionSecretFromEnv();
+  if (direct) {
+    return new TextEncoder().encode(direct);
+  }
+  // Vercel / Node-only: never call Cloudflare Workers APIs (can throw or hang).
+  if (process.env.VERCEL === "1" || process.env.VERCEL_ENV) {
+    return new TextEncoder().encode(requireSecretString());
   }
   try {
     const { env } = await getCloudflareContext({ async: true });
-    const s = env.CONTRACT_SESSION_SECRET;
+    const s = (env.CONTRACT_SESSION_SECRET as string | undefined)?.trim();
     if (s && s.length >= 16) {
       return new TextEncoder().encode(s);
     }
@@ -28,8 +38,8 @@ async function getSessionSecretBytes(): Promise<Uint8Array> {
 
 /** For Edge middleware: secret must be available on process.env */
 export function getSessionSecretBytesFromProcessEnv(): Uint8Array | null {
-  const s = process.env.CONTRACT_SESSION_SECRET;
-  if (!s || s.length < 16) return null;
+  const s = sessionSecretFromEnv();
+  if (!s) return null;
   return new TextEncoder().encode(s);
 }
 

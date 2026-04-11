@@ -20,6 +20,7 @@ The owner signs in at **`/admin/login`** → **`/admin/contracts`**. Publishing 
    - Optional: **`NEXT_PUBLIC_HERO_VIDEO_URL`** — same as below.
 3. Run the SQL in [`migrations/postgres/0001_contracts.sql`](./migrations/postgres/0001_contracts.sql) once against that database (SQL editor in the provider’s dashboard, or `psql`).
 4. Connect the Git repo and deploy. The build sets `VERCEL=1` automatically; OpenNext Cloudflare init is skipped so the build is a normal Next.js build.
+5. **After changing environment variables**, trigger a **new deployment** (Redeploy) so serverless functions see the new values. A **500 on login** almost always means `CONTRACT_SESSION_SECRET` is missing, under 16 characters, or not deployed yet — not the `npm warn deprecated` lines from the install log (those are harmless).
 
 If **`DATABASE_URL`** is **not** set, the app expects **Cloudflare D1** (see below).
 

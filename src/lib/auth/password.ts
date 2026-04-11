@@ -4,10 +4,10 @@ import { getCloudflareContext } from "@opennextjs/cloudflare";
 export async function verifyAdminPassword(plain: string): Promise<boolean> {
   const input = plain.trim();
   let expected = (process.env.CONTRACT_ADMIN_PASSWORD ?? "").trim();
-  if (!expected) {
+  if (!expected && !(process.env.VERCEL === "1" || process.env.VERCEL_ENV)) {
     try {
       const { env } = await getCloudflareContext({ async: true });
-      expected = (env.CONTRACT_ADMIN_PASSWORD ?? "").trim();
+      expected = (env.CONTRACT_ADMIN_PASSWORD as string | undefined ?? "").trim();
     } catch {
       expected = "";
     }

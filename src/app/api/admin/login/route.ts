@@ -21,7 +21,21 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid password" }, { status: 401 });
   }
 
-  const token = await signAdminSessionJwt();
+  let token: string;
+  try {
+    token = await signAdminSessionJwt();
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : "Session signing failed";
+    console.error("[admin/login]", msg);
+    return NextResponse.json(
+      {
+        error:
+          "Server configuration error. Set CONTRACT_SESSION_SECRET in Vercel (16+ characters), redeploy, and try again.",
+        detail: process.env.NODE_ENV === "development" ? msg : undefined,
+      },
+      { status: 500 }
+    );
+  }
   const res = NextResponse.json({ ok: true });
   res.cookies.set(SESSION_COOKIE_NAME, token, {
     httpOnly: true,
