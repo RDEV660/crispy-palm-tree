@@ -3,6 +3,7 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import { SocialLinks } from "@/components/SocialLinks";
 import { StickyWhatsAppButton } from "@/components/StickyWhatsAppButton";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { HOME_HERO_SLIDES } from "@/data/home-hero-slides";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
@@ -71,45 +72,43 @@ export default function Home() {
       </header>
 
       <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:py-14">
-        <section className="relative grid gap-8 overflow-hidden rounded-3xl bg-white p-6 shadow-sm ring-1 ring-zinc-900/5 dark:bg-zinc-950 dark:ring-white/10 sm:p-10">
+        <section className="relative min-h-[min(78vh,820px)] overflow-hidden rounded-3xl bg-zinc-950 shadow-lg ring-1 ring-white/10 sm:min-h-[560px]">
           <HeroBackdrop videoLabel={tHome("heroVideoLabel")} />
-          <div className="relative z-10 grid gap-8">
-            <div className="grid gap-4">
-              <h1 className="text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-5xl dark:text-zinc-50">
-                {tHome("heroTitle")}
-              </h1>
-              <p className="max-w-2xl text-base leading-7 text-zinc-800 dark:text-zinc-200 sm:text-lg">
-                {tHome("heroSubtitle")}
-              </p>
-            </div>
+          <div className="relative z-10 flex min-h-[min(78vh,820px)] flex-col justify-end p-6 pb-8 sm:p-10">
+            <div className="max-w-xl rounded-3xl border border-white/15 bg-black/50 p-6 shadow-2xl backdrop-blur-md supports-[backdrop-filter]:bg-black/40">
+              <div className="grid gap-4">
+                <h1 className="text-3xl font-extrabold tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)] sm:text-5xl">
+                  {tHome("heroTitle")}
+                </h1>
+                <p className="max-w-2xl text-base leading-7 text-zinc-100/95 sm:text-lg">{tHome("heroSubtitle")}</p>
+              </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">
-              <WhatsAppCTA className="w-full sm:w-auto" />
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
-                <div className="text-sm text-zinc-700 dark:text-zinc-300">
-                  <span className="font-medium">{tCommon("phone")}:</span> (956) 703-2804
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-semibold text-zinc-600 dark:text-zinc-400">
-                    {tCommon("followUs")}
-                  </span>
-                  <SocialLinks />
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <WhatsAppCTA className="inline-flex w-full items-center justify-center rounded-full bg-emerald-500 px-5 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-emerald-400/40 transition hover:bg-emerald-400 sm:w-auto" />
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+                  <div className="text-sm text-zinc-200">
+                    <span className="font-medium text-white">{tCommon("phone")}:</span> (956) 703-2804
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold text-zinc-300">{tCommon("followUs")}</span>
+                    <SocialLinks variant="onDark" />
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-              <div className="rounded-2xl bg-white/95 p-4 shadow-sm ring-1 ring-zinc-200/80 backdrop-blur-sm dark:bg-zinc-900/70 dark:ring-zinc-800">
-                <div className="text-xs font-semibold text-zinc-600 dark:text-zinc-400">{tCommon("serviceArea")}</div>
-                <div className="mt-1 text-sm font-semibold">{tCommon("serviceAreaValue")}</div>
-              </div>
-              <div className="rounded-2xl bg-white/95 p-4 shadow-sm ring-1 ring-zinc-200/80 backdrop-blur-sm dark:bg-zinc-900/70 dark:ring-zinc-800">
-                <div className="text-xs font-semibold text-zinc-600 dark:text-zinc-400">{tHome("servicesTitle")}</div>
-                <div className="mt-1 text-sm font-semibold">Snack carts • Decor • Themes</div>
-              </div>
-              <div className="rounded-2xl bg-white/95 p-4 shadow-sm ring-1 ring-zinc-200/80 backdrop-blur-sm dark:bg-zinc-900/70 dark:ring-zinc-800">
-                <div className="text-xs font-semibold text-zinc-600 dark:text-zinc-400">WhatsApp</div>
-                <div className="mt-1 text-sm font-semibold">Fast quotes & availability</div>
+              <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div className="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur-sm">
+                  <div className="text-xs font-semibold text-zinc-300">{tCommon("serviceArea")}</div>
+                  <div className="mt-1 text-sm font-semibold text-white">{tCommon("serviceAreaValue")}</div>
+                </div>
+                <div className="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur-sm">
+                  <div className="text-xs font-semibold text-zinc-300">{tHome("servicesTitle")}</div>
+                  <div className="mt-1 text-sm font-semibold text-white">{tHome("heroHighlights.servicesBlurb")}</div>
+                </div>
+                <div className="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur-sm">
+                  <div className="text-xs font-semibold text-zinc-300">{tHome("heroHighlights.whatsappTitle")}</div>
+                  <div className="mt-1 text-sm font-semibold text-white">{tHome("heroHighlights.whatsappBlurb")}</div>
+                </div>
               </div>
             </div>
           </div>
@@ -142,12 +141,14 @@ export default function Home() {
             <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{tHome("gallerySubtitle")}</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {Array.from({ length: 8 }).map((_, i) => (
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
+            {HOME_HERO_SLIDES.map((src) => (
               <div
-                key={i}
-                className="aspect-square rounded-3xl bg-gradient-to-br from-orange-200 via-pink-200 to-emerald-200 ring-1 ring-zinc-900/5 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-700 dark:ring-white/10"
-              />
+                key={src}
+                className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-zinc-200 ring-1 ring-zinc-900/10 dark:bg-zinc-800 dark:ring-white/10"
+              >
+                <Image src={src} alt="" fill className="object-cover" sizes="(max-width: 640px) 50vw, 33vw" />
+              </div>
             ))}
           </div>
         </section>

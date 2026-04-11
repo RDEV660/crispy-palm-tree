@@ -1,7 +1,7 @@
 {
   "Brand": {
     "name": "Ohana Events",
-    "tagline": "Kids parties, baby showers, and unforgettable moments."
+    "tagline": "Snack carts, fresh aguas, baby shower animations, and parties to remember."
   },
   "Common": {
     "language": "Language",
@@ -20,17 +20,25 @@
   },
   "Home": {
     "heroTitle": "Your event, made easy",
-    "heroSubtitle": "From snack carts to themed decor, we take care of the details so you can enjoy the celebration.",
+    "heroSubtitle": "Snack carts, fruit treats, fresh aguas, fun characters — plus baby shower animations (baby showers only). We run the station so you can enjoy the party.",
     "servicesTitle": "Services",
     "services": {
       "snackFruit": { "title": "Fruit snack cart", "desc": "Fresh, colorful, and perfect for any party." },
       "snackCorn": { "title": "Elote cart", "desc": "Classic street-style corn with your favorite toppings." },
       "snackChips": { "title": "Chips & candy cart", "desc": "Fun options for kids and adults." },
       "freshWaters": { "title": "Fresh aguas", "desc": "Refreshing flavors served chilled." },
-      "babyShower": { "title": "Baby shower setup", "desc": "Sweet, photo-ready decor and details." },
+      "babyShower": {
+        "title": "Baby shower animations",
+        "desc": "Live animations for baby showers only — not general party decorations."
+      },
       "characters": { "title": "Characters", "desc": "Add a surprise guest to your party." }
     },
-    "heroVideoLabel": "Decorative background video",
+    "heroVideoLabel": "Optional background video",
+    "heroHighlights": {
+      "servicesBlurb": "Snack carts • Baby shower animations • Characters",
+      "whatsappTitle": "WhatsApp",
+      "whatsappBlurb": "Fast quotes & availability"
+    },
     "galleryTitle": "Gallery",
     "gallerySubtitle": "A few vibes we love — your theme can be custom.",
     "footerCTA": "Ready to plan? Message us on WhatsApp.",

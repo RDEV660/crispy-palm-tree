@@ -42,7 +42,7 @@ If **`DATABASE_URL`** is **not** set, the app expects **Cloudflare D1** (see bel
 
 ### Homepage hero (slideshow + video)
 
-- Slideshow images live in **`public/hero/`** as `slide-01.png` … `slide-07.png` (replace those files to update the hero). Paths are listed in `src/components/HeroBackdrop.tsx`.
+- Homepage hero + gallery photos live in **`public/hero/`** as `home-01.png` … `home-11.png`. The ordered list is in `src/data/home-hero-slides.ts`. Optional: set **`NEXT_PUBLIC_HERO_VIDEO_URL`** for a subtle background video layer.
 - Optional: set **`NEXT_PUBLIC_HERO_VIDEO_URL`** to a public `.mp4` or `.webm` URL (or a path under `public/`, e.g. `/hero/promo.mp4`). If unset, a small CC0 sample clip is used.
 
 ## Getting Started

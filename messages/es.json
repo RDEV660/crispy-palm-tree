@@ -1,7 +1,7 @@
 {
   "Brand": {
     "name": "Ohana Events",
-    "tagline": "Fiestas infantiles, baby showers y momentos inolvidables."
+    "tagline": "Snack carts, aguas frescas, animaciones para baby shower y fiestas memorables."
   },
   "Common": {
     "language": "Idioma",
@@ -20,17 +20,25 @@
   },
   "Home": {
     "heroTitle": "Tu evento, sin estrés",
-    "heroSubtitle": "Desde snack carts hasta decoración temática, cuidamos los detalles para que tú disfrutes la celebración.",
+    "heroSubtitle": "Snack carts, fruta preparada, aguas frescas, personajes — y animaciones solo para baby shower (no decoración general). Nosotras montamos el servicio para que tú disfrutes.",
     "servicesTitle": "Servicios",
     "services": {
       "snackFruit": { "title": "Snack cart de fruta", "desc": "Fresco, colorido y perfecto para cualquier fiesta." },
       "snackCorn": { "title": "Cart de elotes", "desc": "Elote estilo calle con tus toppings favoritos." },
       "snackChips": { "title": "Cart de snacks", "desc": "Opciones divertidas para niños y adultos." },
       "freshWaters": { "title": "Aguas frescas", "desc": "Sabores refrescantes servidos bien fríos." },
-      "babyShower": { "title": "Decoración para baby shower", "desc": "Detalles lindos y listos para fotos." },
+      "babyShower": {
+        "title": "Animaciones para baby shower",
+        "desc": "Animaciones en vivo solo para baby shower — no decoración general de fiestas."
+      },
       "characters": { "title": "Personajes", "desc": "Agrega un invitado sorpresa a tu fiesta." }
     },
-    "heroVideoLabel": "Video decorativo de fondo",
+    "heroVideoLabel": "Video de fondo opcional",
+    "heroHighlights": {
+      "servicesBlurb": "Snack carts • Animaciones baby shower • Personajes",
+      "whatsappTitle": "WhatsApp",
+      "whatsappBlurb": "Cotización rápida y disponibilidad"
+    },
     "galleryTitle": "Galería",
     "gallerySubtitle": "Unas ideas que nos encantan — tu tema puede ser personalizado.",
     "footerCTA": "¿Lista para planear? Mándanos mensaje por WhatsApp.",

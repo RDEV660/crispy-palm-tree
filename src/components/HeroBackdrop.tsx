@@ -2,33 +2,16 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
-/** Ohana Events promo flyers — files in /public/hero/ */
-const DEFAULT_SLIDES = [
-  "/hero/slide-01.png",
-  "/hero/slide-02.png",
-  "/hero/slide-03.png",
-  "/hero/slide-04.png",
-  "/hero/slide-05.png",
-  "/hero/slide-06.png",
-  "/hero/slide-07.png",
-];
-
-/** CC0 sample — set `NEXT_PUBLIC_HERO_VIDEO_URL` to your own file or CDN URL */
-const DEFAULT_VIDEO_SOURCES: { src: string; type: string }[] = [
-  {
-    src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
-    type: "video/webm",
-  },
-];
+import { HOME_HERO_SLIDES } from "@/data/home-hero-slides";
 
 type Props = {
-  imageUrls?: string[];
   videoLabel: string;
 };
 
-export function HeroBackdrop({ imageUrls, videoLabel }: Props) {
-  const slides = imageUrls?.length ? imageUrls : DEFAULT_SLIDES;
+const SLIDE_INTERVAL_MS = 4500;
+
+export function HeroBackdrop({ videoLabel }: Props) {
+  const slides = HOME_HERO_SLIDES;
   const [index, setIndex] = useState(0);
   const [reduceMotion, setReduceMotion] = useState(false);
 
@@ -44,18 +27,19 @@ export function HeroBackdrop({ imageUrls, videoLabel }: Props) {
     if (reduceMotion) return;
     const t = window.setInterval(() => {
       setIndex((i) => (i + 1) % slides.length);
-    }, 5500);
+    }, SLIDE_INTERVAL_MS);
     return () => window.clearInterval(t);
   }, [slides.length, reduceMotion]);
 
   const customVideo = process.env.NEXT_PUBLIC_HERO_VIDEO_URL?.trim();
+  const showVideo = Boolean(customVideo) && !reduceMotion;
   const videoSources = customVideo
     ? [{ src: customVideo, type: customVideo.endsWith(".webm") ? "video/webm" : "video/mp4" }]
-    : DEFAULT_VIDEO_SOURCES;
+    : [];
 
   return (
     <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-3xl" aria-hidden>
-      <div className="absolute inset-0 bg-zinc-100 dark:bg-zinc-950" />
+      <div className="absolute inset-0 bg-zinc-950" />
 
       <div className="absolute inset-0">
         {slides.map((src, i) => (
@@ -64,11 +48,11 @@ export function HeroBackdrop({ imageUrls, videoLabel }: Props) {
               src={src}
               alt=""
               fill
-              sizes="(max-width: 768px) 100vw, 896px"
-              className={`object-cover transition-opacity duration-[1400ms] ease-in-out ${
+              sizes="100vw"
+              className={`object-cover transition-[opacity,transform] duration-[1600ms] ease-out ${
                 i === index
-                  ? "opacity-[0.26] saturate-[1.15] contrast-[1.05] blur-[1px] dark:opacity-[0.18] dark:saturate-[1.05] dark:contrast-100"
-                  : "opacity-0"
+                  ? "opacity-[0.62] scale-100 saturate-[1.08] contrast-[1.03]"
+                  : "opacity-0 scale-[1.03]"
               }`}
               priority={i === 0}
             />
@@ -76,9 +60,9 @@ export function HeroBackdrop({ imageUrls, videoLabel }: Props) {
         ))}
       </div>
 
-      {!reduceMotion && (
+      {showVideo && (
         <video
-          className="absolute inset-0 h-full w-full object-cover opacity-10 mix-blend-multiply dark:opacity-16 dark:mix-blend-soft-light"
+          className="absolute inset-0 h-full w-full object-cover opacity-15 mix-blend-soft-light"
           autoPlay
           muted
           loop
@@ -91,9 +75,9 @@ export function HeroBackdrop({ imageUrls, videoLabel }: Props) {
         </video>
       )}
 
-      {/* Clean, intentional overlay for readability + depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/92 via-white/85 to-white/92 dark:from-zinc-950/78 dark:via-zinc-950/70 dark:to-zinc-950/85" />
-      <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(24,24,27,0.06),inset_0_-120px_160px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),inset_0_-120px_160px_rgba(0,0,0,0.25)]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/55 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/25" />
+      <div className="absolute inset-0 shadow-[inset_0_0_120px_rgba(0,0,0,0.35)]" />
     </div>
   );
 }
