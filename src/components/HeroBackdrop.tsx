@@ -51,8 +51,8 @@ export function HeroBackdrop({ videoLabel }: Props) {
               sizes="100vw"
               className={`object-cover transition-[opacity,transform] duration-[1600ms] ease-out ${
                 i === index
-                  ? "opacity-[0.62] scale-100 saturate-[1.08] contrast-[1.03]"
-                  : "opacity-0 scale-[1.03]"
+                  ? "opacity-100 scale-100 saturate-[1.06] contrast-[1.02]"
+                  : "opacity-0 scale-[1.02]"
               }`}
               priority={i === 0}
             />
@@ -75,9 +75,10 @@ export function HeroBackdrop({ videoLabel }: Props) {
         </video>
       )}
 
-      <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/55 to-black/20" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/25" />
-      <div className="absolute inset-0 shadow-[inset_0_0_120px_rgba(0,0,0,0.35)]" />
+      {/* Light scrims so photos read clearly; text panel on page handles readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
+      <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.2)]" />
     </div>
   );
 }

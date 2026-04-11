@@ -1,7 +1,5 @@
 /** Real Ohana photos used on the homepage hero + gallery (served from /public/hero). */
 export const HOME_HERO_SLIDES = [
-  "/hero/home-01.png",
-  "/hero/home-02.png",
   "/hero/home-03.png",
   "/hero/home-04.png",
   "/hero/home-05.png",

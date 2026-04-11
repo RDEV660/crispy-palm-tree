@@ -15,7 +15,7 @@ export function StickyWhatsAppButton() {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex w-full items-center justify-center rounded-full bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-lg ring-1 ring-zinc-900/10 transition hover:bg-zinc-800 active:bg-zinc-900 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
+        className="flex w-full items-center justify-center rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-lg ring-1 ring-emerald-500/30 transition hover:bg-emerald-500 active:bg-emerald-700"
         aria-label={tCommon("chatOnWhatsApp")}
       >
         {tCommon("chatOnWhatsApp")}
