@@ -3,6 +3,7 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import { SocialLinks } from "@/components/SocialLinks";
 import { StickyWhatsAppButton } from "@/components/StickyWhatsAppButton";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { ANIMATION_GALLERY } from "@/data/animation-gallery";
 import { HOME_HERO_SLIDES } from "@/data/home-hero-slides";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -130,6 +131,24 @@ export default function Home() {
               >
                 <div className="text-base font-semibold text-zinc-50">{s.title}</div>
                 <p className="mt-2 text-sm leading-6 text-zinc-400">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-10 sm:mt-14">
+          <div className="mb-4">
+            <h2 className="text-xl font-bold tracking-tight text-zinc-50 sm:text-2xl">{tHome("animationsSectionTitle")}</h2>
+            <p className="mt-1 text-sm font-medium text-emerald-400/90">{tHome("animationsSectionSubtitle")}</p>
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-zinc-400">{tHome("animationsIntro")}</p>
+          </div>
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5 sm:gap-3">
+            {ANIMATION_GALLERY.map((src) => (
+              <div
+                key={src}
+                className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-zinc-700/80"
+              >
+                <Image src={src} alt="" fill className="object-cover" sizes="(max-width: 640px) 50vw, 20vw" />
               </div>
             ))}
           </div>

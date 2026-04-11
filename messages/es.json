@@ -30,9 +30,9 @@
       "freshWaters": { "title": "Aguas frescas", "desc": "Sabores refrescantes servidos bien fríos." },
       "babyShower": {
         "title": "Animaciones para baby shower",
-        "desc": "Animaciones en vivo solo para baby shower — no decoración general de fiestas."
+        "desc": "Personajes y botargas para baby shower — bebés gigantes, personajes clásicos, cabina 360 y más (solo reservas de baby shower)."
       },
-      "characters": { "title": "Personajes", "desc": "Agrega un invitado sorpresa a tu fiesta." }
+      "characters": { "title": "Personajes", "desc": "Botargas y personajes temáticos para cumples y celebraciones." }
     },
     "heroVideoLabel": "Video de fondo opcional",
     "heroHighlights": {
@@ -40,8 +40,11 @@
       "whatsappTitle": "WhatsApp",
       "whatsappBlurb": "Cotización rápida y disponibilidad"
     },
+    "animationsSectionTitle": "Animaciones para baby shower",
+    "animationsSectionSubtitle": "Entretenimiento con personajes — fotos reales de nuestros eventos.",
+    "animationsIntro": "Llevamos botargas y personajes: bebés grandes para fotos con la mamá, duos clásicos, favoritos de siempre y extras divertidos como cabina 360. Cuéntanos tu tema y fecha por WhatsApp.",
     "galleryTitle": "Galería",
-    "gallerySubtitle": "Unas ideas que nos encantan — tu tema puede ser personalizado.",
+    "gallerySubtitle": "Snacks, montajes y ambiente de fiesta — tu tema puede ser personalizado.",
     "footerCTA": "¿Lista para planear? Mándanos mensaje por WhatsApp.",
     "ownerDashboard": "Panel de contratos (dueña)",
     "ownerDashboardHint": "Solo para dueña (te pedirá iniciar sesión)"

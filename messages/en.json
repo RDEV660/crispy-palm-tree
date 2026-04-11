@@ -30,9 +30,9 @@
       "freshWaters": { "title": "Fresh aguas", "desc": "Refreshing flavors served chilled." },
       "babyShower": {
         "title": "Baby shower animations",
-        "desc": "Live animations for baby showers only — not general party decorations."
+        "desc": "Costumed characters and mascots for baby showers — big baby outfits, themed favorites, 360 booth moments, and more (baby shower bookings only)."
       },
-      "characters": { "title": "Characters", "desc": "Add a surprise guest to your party." }
+      "characters": { "title": "Characters", "desc": "Surprise guests love a mascot or themed character at birthdays and celebrations." }
     },
     "heroVideoLabel": "Optional background video",
     "heroHighlights": {
@@ -40,8 +40,11 @@
       "whatsappTitle": "WhatsApp",
       "whatsappBlurb": "Fast quotes & availability"
     },
+    "animationsSectionTitle": "Baby shower animations",
+    "animationsSectionSubtitle": "Live character entertainment — real moments from our events.",
+    "animationsIntro": "We bring mascots and costumed characters: sweet baby characters for mom-to-be photos, classic duos, fan favorites, and fun extras like a 360 photo setup. Tell us your theme and date on WhatsApp.",
     "galleryTitle": "Gallery",
-    "gallerySubtitle": "A few vibes we love — your theme can be custom.",
+    "gallerySubtitle": "Snacks, setups, and party energy — your theme can be custom.",
     "footerCTA": "Ready to plan? Message us on WhatsApp.",
     "ownerDashboard": "Owner contract dashboard",
     "ownerDashboardHint": "Owner-only (will ask you to sign in)"
