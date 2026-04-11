@@ -2,9 +2,15 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { OwnerGuide } from "@/components/contracts/OwnerGuide";
 import type { ContractStatus } from "@/lib/contracts/constants";
+import type { ContractRow } from "@/lib/contracts/repo";
 import { listContracts, rowPayload } from "@/lib/contracts/repo";
 
 export const dynamic = "force-dynamic";
+
+function isMissingContractsTable(message: string): boolean {
+  const m = message.toLowerCase();
+  return m.includes("does not exist") || m.includes("relation") || m.includes("no such table") || m.includes("42p01");
+}
 
 const STATUS_LABEL_KEYS: Record<ContractStatus, string> = {
   draft: "statusDraft",
@@ -20,7 +26,33 @@ function statusLabelKey(status: string): string {
 
 export default async function AdminContractsListPage() {
   const t = await getTranslations("Contract");
-  const rows = await listContracts();
+  let rows: ContractRow[] = [];
+  let loadError: string | null = null;
+  try {
+    rows = await listContracts();
+  } catch (e) {
+    loadError = e instanceof Error ? e.message : String(e);
+  }
+
+  if (loadError) {
+    const setup = isMissingContractsTable(loadError);
+    return (
+      <div className="mx-auto max-w-2xl px-4 py-16">
+        <div className="rounded-3xl border border-amber-200 bg-amber-50 p-6 text-amber-950 shadow-sm dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-100">
+          <h1 className="text-xl font-bold">{setup ? t("dbSetupTitle") : t("dbErrorTitle")}</h1>
+          <p className="mt-3 text-sm leading-relaxed">{setup ? t("dbSetupBody") : t("dbErrorGeneric")}</p>
+          {!setup && process.env.NODE_ENV === "development" && (
+            <pre className="mt-4 overflow-x-auto rounded-xl bg-black/10 p-3 text-xs dark:bg-black/30">{loadError}</pre>
+          )}
+          <p className="mt-4 text-sm">
+            <Link href="/admin/contracts" className="font-semibold text-emerald-800 underline dark:text-emerald-400">
+              Reload
+            </Link>
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">

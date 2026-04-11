@@ -8,11 +8,20 @@ export type ContractDb =
 let pgSql: Sql | null = null;
 let pgInit: Promise<Sql> | null = null;
 
+function getPostgresConnectionString(): string | undefined {
+  return (
+    process.env.DATABASE_URL ??
+    process.env.POSTGRES_URL ??
+    process.env.POSTGRES_PRISMA_URL ??
+    process.env.NEON_DATABASE_URL
+  )?.trim();
+}
+
 async function getPostgresSql(): Promise<Sql> {
-  const url = (process.env.DATABASE_URL ?? process.env.POSTGRES_URL)?.trim();
+  const url = getPostgresConnectionString();
   if (!url) {
     throw new Error(
-      "Set DATABASE_URL (or POSTGRES_URL) for Vercel, or use Cloudflare with D1 configured."
+      "Set DATABASE_URL (Vercel/Neon usually sets this automatically). Fallbacks: POSTGRES_URL, POSTGRES_PRISMA_URL."
     );
   }
   if (pgSql) return pgSql;
@@ -37,7 +46,7 @@ async function getPostgresSql(): Promise<Sql> {
  * Otherwise use Cloudflare D1 when the binding exists.
  */
 export async function getContractDb(): Promise<ContractDb> {
-  if (process.env.DATABASE_URL?.trim() || process.env.POSTGRES_URL?.trim()) {
+  if (getPostgresConnectionString()) {
     return { driver: "postgres", sql: await getPostgresSql() };
   }
   try {
