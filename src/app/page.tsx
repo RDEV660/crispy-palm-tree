@@ -185,7 +185,7 @@ export default function Home() {
               <div className="flex w-full flex-col gap-3 sm:w-auto sm:min-w-[220px] sm:items-stretch">
                 <WhatsAppCTA className="inline-flex w-full items-center justify-center rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-emerald-500/30 transition hover:bg-emerald-500" />
                 <Link
-                  href="/admin/contracts"
+                  href="/admin/login"
                   className="inline-flex w-full items-center justify-center rounded-full border border-zinc-600 bg-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-700"
                 >
                   {tHome("ownerDashboard")}
